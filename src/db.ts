@@ -1,6 +1,6 @@
 import mongoose, { Schema, model } from 'mongoose';
-
-const mongoUrl: string = 'mongodb://mongo:27017/myDatabase';
+import 'dotenv/config';
+const mongoUrl: string = process.env.MONGO_URL;
 
 // Connect to MongoDB
 mongoose.connect(mongoUrl)
@@ -22,3 +22,5 @@ const UserSchema: Schema = new Schema<IUser>({
 
 // Create a User model
 export const User = model<IUser>('User', UserSchema);
+
+//mongodb://mongo:27017/myDatabase

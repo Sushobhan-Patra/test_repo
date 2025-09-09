@@ -1,8 +1,9 @@
 import express, { Express, Request, Response } from 'express';
+import 'dotenv/config';
 import { User } from './db';
 
 const app: Express = express();
-const port: number = 3000;
+const port: number = process.env.PORT || 3000;
 
 app.use(express.json());
 

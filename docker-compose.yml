@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3001'
+    depends_on:
+      - db
+    networks:
+      - express-mongo
+  db:
+    image: mongo
+    expose:
+      - 27017
+    restart: always
+    volumes:
+      - mongo-data:/data/db 
+    networks:
+      - express-mongo
+
+volumes:
+  mongo-data:
+
+networks:
+  express-mongo:
